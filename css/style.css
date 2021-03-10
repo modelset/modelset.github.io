@@ -1,0 +1,100 @@
+/* http://paletton.com/#uid=30G0u0ks6zphuJhmNCFy3sP-Nmq */
+
+.jumbotron {
+  background-color: #FFC174 ;
+  height: 185px; 
+  padding-top: 5px;
+}
+
+.container h1 {
+  margin-top: 0.5em;
+}
+
+.btn.btn-secondary {
+  margin: 2px;
+}
+
+/*button.btn.btn-primary.active {
+  background-color: #FF9C1F;
+  border-color: #B36400;
+}
+button.btn.btn-primary.focus.active {
+  background-color: #FF9C1F;
+  border-color: #B36400;
+}*/
+
+#vue-app table {
+  margin-top: 1em;
+}
+  
+#vue-app th a {
+  font-weight: bold;
+  color: black;
+  text-decoration: none;  
+}
+
+#vue-app th a:active {
+  font-weight: bold;
+  color: black;
+  text-decoration: underline;
+}
+
+#vue-app td a {
+  color: black;
+  text-decoration: none;  
+  display: inline
+}
+
+#vue-app .model-source {
+  float: right;
+  color: white;
+  background-color: #FF9C1F;
+  border-radius: 3px;
+  padding: 3px 6px 3px 6px;
+}
+
+.card {
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.card-item {
+  margin-right: 5px;
+}
+
+.model-metadata {
+  color: white;
+  background-color: #FF9C1F;
+  border-radius: 3px;
+  padding: 3px 6px 3px 6px;
+  font-size: 10px;
+  margin: 0px 3px 0px 3px;
+}
+
+.footer {
+  height: 100px;
+  background-color: #FFC174;
+  color: black !important;
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;  
+  font-weight: bold;
+}
+
+.figure {
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
+  }
+
+.figure-caption {
+  display: table-caption;
+  caption-side: bottom;
+  text-align: center;
+}

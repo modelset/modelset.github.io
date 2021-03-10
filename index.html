@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ModelSet</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    
+  <!-- DEV --> 
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash/lodash.js"></script>
+  <!--<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>-->
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4">ModelSet</h1>
+      <!-- <p class="lead">A dataset for machine learning in software modelling</p> -->
+    </div> 
+  </div>
+
+  <div class="container">
+    <div id="vue-app">
+<!--       <p class="text-center">
+        <button v-for="(category,index) in categories" type="button" class="btn btn-secondary" data-toggle="button" aria-pressed="false" v-on:click="toggleCategory(category)">
+          {{ category }}
+        </button>
+      </p> -->
+
+      <div class="row">
+        <div class="col-8">
+          <p>
+            <span style="font-variant: small-caps; font-weight: bold;">ModelSet</span> is a dataset composed of 5,460 Ecore and 5,120 UML labelled models, making a total of 10,580 models. Ecore models have been collected from GitHub, whereas UML models have been retrieved from GenMyModel repositories. 
+          </p>     
+<!--           <p>
+            There is a total of 61,656 labels (23,538 and 38,118 labels in Ecore and UML, respectively), with an average 
+            number of labels per model of 5.83 (4.31 and 7.44 in Ecore and UML, respectively). 
+          </p> -->
+          <p>
+            The main label of <span style="font-variant: small-caps; font-weight: bold;">ModelSet</span> is named <em>category</em>, which represents a type of models sharing a similar application domain. We also assigned other labels to complement the metadata of the models (e.g., purpose, notation or tool). We believe that most of the labels we used are self-descriptive and we invited you to explore the dataset and labels. 
+          </p>
+        </div>
+        <div class="col-4">
+          <figure class="figure">
+            <img src="imgs/tagCloud1.JPG" class="figure-img img-fluid rounded" alt="ModelSet tag cloud">
+            <figcaption class="figure-caption">Tag cloud generated from the set of categories of <span style="font-variant: small-caps; font-weight: bold;">ModelSet</span>.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="row">
+        <p>
+          You can browse the models included in <span style="font-variant: small-caps; font-weight: bold;">ModelSet</span> by filtering via category. Once the models are listed, click on the name of the model to expand the information and explore the data. 
+        </p>
+        <div class="dropdown">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select one or more categories to show
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" v-for="(category,index) in categories" href="#" v-on:click="toggleCategory(category)" v-bind:class="{ active: selectedCategories.includes(category) }">
+              {{ category }}
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+      <table v-show="listToShow.length > 0" class="table table-sm table-hover">
+      <thead>
+        <tr>
+          <th v-for="(column,index) in columns">
+            <a href="#" v-on:click="sortBy(column)" v-bind:class="{ active: sortKey == column }">
+              {{ column[0].toUpperCase() + column.slice(1) }}
+            </a>
+          </th>
+        </tr>
+      </thead>  
+      <tbody>
+        <tr v-for="(model,index) in listToShow">
+          <td>
+            <a data-toggle="collapse" v-bind:href="'#model' + model.id" role="button" aria-expanded="false" aria-controls="collapseModel">
+                  {{ model.name }} 
+            </a>
+            <span class="model-source">{{model.source}}</span>
+            <div class="collapse" v-bind:id="'model' + model.id">
+              <div class="card card-body">
+                <span class="card-item">
+                  <strong>URL:</strong>
+                  <a v-bind:href="model.url" target="_blank">{{model.url}}</a>
+                </span>
+                <span class="card-item"><strong>Metadata:</strong>&nbsp;
+                  <span v-for="(item, key, index) in model.metadata" class="model-metadata">
+                    {{key}} : {{item[0]}}
+                  </span>
+                </span>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody> 
+      </table>
+
+      <hr>
+
+    </div>
+  </div> 
+
+  <div class="footer">
+  <div class="container">
+    <p class="text-center">
+    </p>
+  </div> 
+  </div> 
+
+  <script src="js/app.js"></script>
+  <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+  
+
+</body>
+
+</html>
